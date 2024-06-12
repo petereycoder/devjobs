@@ -5,7 +5,7 @@
             id="titulo" 
             class="block mt-1 w-full" 
             type="text" 
-            name="titulo" 
+            wire:model="titulo" 
             :value="old('titulo')" 
             placeholder="Titulo Vacante"
         />
@@ -16,7 +16,7 @@
         <x-input-label for="salario" :value="__('Salario Mensual')" />
         <select 
             id="salario"
-            name="salario" 
+            wire:model="salario" 
             class="block text-sm text-gray-500 font-bold uppercase mb-2 w-full"
         >
             <option>-- Seleccione --</option>
@@ -31,7 +31,7 @@
         <x-input-label for="categoria" :value="__('Categoria')" />
         <select 
             id="categoria"
-            name="categoria" 
+            wire:model="categoria" 
             class="block text-sm text-gray-500 font-bold uppercase mb-2 w-full"
         >
             <option>-- Seleccione --</option>
@@ -48,7 +48,7 @@
             id="empresa" 
             class="block mt-1 w-full" 
             type="text" 
-            name="empresa" 
+            wire:model="empresa" 
             :value="old('empresa')" 
             placeholder="Empresa ej. Netflix, Uber, Shopify"
         />
@@ -61,7 +61,7 @@
             id="ultimo_dia" 
             class="block mt-1 w-full" 
             type="date" 
-            name="ultimo_dia" 
+            wire:model="ultimo_dia" 
             :value="old('ultimo_dia')" 
         />
         <x-input-error :messages="$errors->get('ultimo_dia')" class="mt-2" />
@@ -70,7 +70,7 @@
     <div>
         <x-input-label for="descipcion" :value="__('Descripción Puesto')" />
         <textarea 
-            name="descipcion" 
+            wire:model="descipcion" 
             placeholder="Descripción general del puesto, experiencia"
             class="block text-sm text-gray-500 font-bold uppercase mb-2 w-full h-72"
         ></textarea>
@@ -83,7 +83,7 @@
             id="imagen" 
             class="block mt-1 w-full" 
             type="file" 
-            name="imagen" 
+            wire:model="imagen" 
         />
         <x-input-error :messages="$errors->get('imagen')" class="mt-2" />
     </div>
