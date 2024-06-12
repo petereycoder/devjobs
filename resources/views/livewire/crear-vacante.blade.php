@@ -9,6 +9,12 @@
             :value="old('titulo')" 
             placeholder="Titulo Vacante"
         />
+        {{--
+        Este component se creó para mandar mensaje de error pero ya estoy utilizando el mensaje que trae laravel 11
+         @error('titulo')
+            <livewire:mostrar-alerta :$message="message" />
+        @enderror 
+        --}}
         <x-input-error :messages="$errors->get('titulo')" class="mt-2" />
     </div>
 
