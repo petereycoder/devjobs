@@ -34,6 +34,10 @@
             name="categoria" 
             class="block text-sm text-gray-500 font-bold uppercase mb-2 w-full"
         >
+            <option>-- Seleccione --</option>
+            @foreach ($categorias as $categoria)
+                <option value="{{ $categoria->id }}">{{ $categoria->categoria }}</option>
+            @endforeach
         </select>
         <x-input-error :messages="$errors->get('categoria')" class="mt-2" />
     </div>
