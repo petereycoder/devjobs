@@ -74,9 +74,9 @@
     </div>
 
     <div>
-        <x-input-label for="descipcion" :value="__('Descripción Puesto')" />
+        <x-input-label for="descripcion" :value="__('Descripción Puesto')" />
         <textarea 
-            wire:model="descipcion" 
+            wire:model="descripcion" 
             placeholder="Descripción general del puesto, experiencia"
             class="block text-sm text-gray-500 font-bold uppercase mb-2 w-full h-72"
         ></textarea>
@@ -90,6 +90,7 @@
             class="block mt-1 w-full" 
             type="file" 
             wire:model="imagen" 
+            accept="image/*"
         />
         <x-input-error :messages="$errors->get('imagen')" class="mt-2" />
     </div>
