@@ -1,4 +1,4 @@
-<form class="md:w-1/2 space-y-5" wire:submit.prevent='crearVacante'>
+<form class="md:w-1/2 space-y-5" wire:submit.prevent='editarVacante'>
     <div>
         <x-input-label for="titulo" :value="__('Titulo Vacante')" />
         <x-text-input 
@@ -78,7 +78,7 @@
         <textarea 
             wire:model="descripcion" 
             placeholder="Descripción general del puesto, experiencia"
-            class="block text-sm text-gray-500 font-bold uppercase mb-2 w-full h-72"
+            class="block text-sm text-gray-500 font-bold mb-2 w-full h-72"
         ></textarea>
         <x-input-error :messages="$errors->get('descripcion')" class="mt-2" />
     </div>
