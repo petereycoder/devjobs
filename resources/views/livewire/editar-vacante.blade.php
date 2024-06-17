@@ -89,22 +89,22 @@
             id="imagen" 
             class="block mt-1 w-full" 
             type="file" 
-            wire:model="imagen" 
+            wire:model="imagen_nueva" 
             accept="image/*"
         />
         <div class="my-5 w-80">
             <x-input-label  :value="__('Imagen Actual')" />
             <img src="{{ asset('storage/vacantes/' . $imagen) }}" alt="{{ 'Imagen Vacante ' . $titulo}}">
         </div>
-        {{-- 
+         
         <div class="my-5 w-80">
-            @if ($imagen)
-                Imagen:
-                <img src="{{ $imagen->temporaryUrl() }}" >
+            @if ($imagen_nueva)
+                Imagen Nueva:
+                <img src="{{ $imagen_nueva->temporaryUrl() }}" >
             @endif
         </div>
-        --}}
-        <x-input-error :messages="$errors->get('imagen')" class="mt-2" />
+        
+        <x-input-error :messages="$errors->get('imagen_nueva')" class="mt-2" />
     </div>
     
     <x-primary-button >
