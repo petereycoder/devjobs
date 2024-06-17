@@ -1,4 +1,4 @@
-<form class="md:w-1/2 space-y-5" wire:submit.prevent='crearVacante'>
+<form class="md:w-1/2 space-y-5" wire:submit.prevent='editarVacante'>
     <div>
         <x-input-label for="titulo" :value="__('Titulo Vacante')" />
         <x-text-input 
@@ -38,7 +38,7 @@
         <select 
             id="categoria"
             wire:model="categoria" 
-            class="block text-sm text-gray-500 font-bold uppercase mb-2 w-full"
+            class="block text-sm text-gray-500 font-bold mb-2 w-full"
         >
             <option>-- Seleccione --</option>
             @foreach ($categorias as $categoria)
@@ -82,26 +82,32 @@
         ></textarea>
         <x-input-error :messages="$errors->get('descripcion')" class="mt-2" />
     </div>
-
+    
     <div>
         <x-input-label for="imagen" :value="__('Imagen')" />
         <x-text-input 
             id="imagen" 
             class="block mt-1 w-full" 
             type="file" 
-            wire:model="imagen" 
+            wire:model="imagen_nueva" 
             accept="image/*"
         />
         <div class="my-5 w-80">
-            @if ($imagen)
-                Imagen:
-                <img src="{{ $imagen->temporaryUrl() }}" >
+            <x-input-label  :value="__('Imagen Actual')" />
+            <img src="{{ asset('storage/vacantes/' . $imagen) }}" alt="{{ 'Imagen Vacante ' . $titulo}}">
+        </div>
+         
+        <div class="my-5 w-80">
+            @if ($imagen_nueva)
+                Imagen Nueva:
+                <img src="{{ $imagen_nueva->temporaryUrl() }}" >
             @endif
         </div>
-        <x-input-error :messages="$errors->get('imagen')" class="mt-2" />
+        
+        <x-input-error :messages="$errors->get('imagen_nueva')" class="mt-2" />
     </div>
-
+    
     <x-primary-button >
-        {{ __('Crear Vacante') }}
+        {{ __('Guardar Cambios') }}
     </x-primary-button>
 </form>
