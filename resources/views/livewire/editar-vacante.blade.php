@@ -38,7 +38,7 @@
         <select 
             id="categoria"
             wire:model="categoria" 
-            class="block text-sm text-gray-500 font-bold uppercase mb-2 w-full"
+            class="block text-sm text-gray-500 font-bold mb-2 w-full"
         >
             <option>-- Seleccione --</option>
             @foreach ($categorias as $categoria)
@@ -82,7 +82,7 @@
         ></textarea>
         <x-input-error :messages="$errors->get('descripcion')" class="mt-2" />
     </div>
-    {{-- 
+    
     <div>
         <x-input-label for="imagen" :value="__('Imagen')" />
         <x-text-input 
@@ -93,15 +93,21 @@
             accept="image/*"
         />
         <div class="my-5 w-80">
+            <x-input-label  :value="__('Imagen Actual')" />
+            <img src="{{ asset('storage/vacantes/' . $imagen) }}" alt="{{ 'Imagen Vacante ' . $titulo}}">
+        </div>
+        {{-- 
+        <div class="my-5 w-80">
             @if ($imagen)
                 Imagen:
                 <img src="{{ $imagen->temporaryUrl() }}" >
             @endif
         </div>
+        --}}
         <x-input-error :messages="$errors->get('imagen')" class="mt-2" />
     </div>
-    --}}
+    
     <x-primary-button >
-        {{ __('Crear Vacante') }}
+        {{ __('Guardar Cambios') }}
     </x-primary-button>
 </form>
