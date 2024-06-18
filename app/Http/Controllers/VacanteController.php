@@ -24,7 +24,9 @@ class VacanteController extends Controller
      */
     public function create()
     {
-        return view('vacantes.create');
+        if(Gate::allows('create', Vacante::class)){
+            return view('vacantes.create');
+        }
     }
 
     /**
