@@ -21,10 +21,10 @@
                         class="bg-blue-800 py-2 px-4 rounded-lg text-white text-xs font-bold uppercase text-center"
                     >Editar</a>
     
-                    <a 
-                        href="#"
+                    <button 
+                        wire:click="$dispatch('mostrarAlerta', {vacante:{{ $vacante}} })"
                         class="bg-red-600 py-2 px-4 rounded-lg text-white text-xs font-bold uppercase text-center"
-                    >Eliminar</a>
+                    >Eliminar</button>
                 </div>
             </div>
            
@@ -42,24 +42,27 @@
 @push('scripts')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        Swal.fire({
-            title: "¿Eliminar Vacante?",
-            text: "Una vacante eliminada no se puede recuperar",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Si, ¡Eliminar!",
-            cancelButtonText: "Cancelar"
-        }).then((result) => {
-        if (result.isConfirmed) {
+        Livewire.on('mostrarAlerta', (vacante) => {
             Swal.fire({
-                title: "¡Eliminado!",
-                text: "La vacante ha sido eliminado",
-                icon: "success"
+                title: "¿Eliminar Vacante?",
+                text: "Una vacante eliminada no se puede recuperar",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Si, ¡Eliminar!",
+                cancelButtonText: "Cancelar"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.dispatch('eliminarVacante', vacante);
+                    Swal.fire({
+                        title: "¡Eliminado!",
+                        text: "La vacante ha sido eliminado",
+                        icon: "success"
+                    });
+                }
             });
-        }
-        });
+        })
     </script>
 @endpush
 
