@@ -12,8 +12,6 @@ class MostrarVacantes extends Component
 {
     #[On('eliminarVacante')]
 
-    
-
     public function eliminarVacante(Vacante $vacante){
         if(Gate::allows('delete', $vacante)){
             // Elimino Imagen
