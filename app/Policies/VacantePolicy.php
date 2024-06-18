@@ -47,6 +47,7 @@ class VacantePolicy
     public function delete(User $user, Vacante $vacante)
     {
         //
+        return $user->id === $vacante->user_id;
     }
 
     /**
