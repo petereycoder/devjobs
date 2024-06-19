@@ -4,8 +4,12 @@
     <form class="w-96 mt-5">
         <div class="mb-4">
             <x-input-label for="cv" :value="__('Curriculum o Hoja de Vida (PDF)')" />
-            <x-text-input id="cv" type="file" accept="pdf" class="block mt-1 w-full" />
+            <x-text-input id="cv" type="file" accept=".pdf" class="block mt-1 w-full" />
             <x-input-error :messages="$errors->get('cv')" class="mt-2" />
         </div>
+
+        <x-primary-button class="my-5">
+            {{ __('Postularme') }}
+        </x-primary-button>
     </form>
 </div>
