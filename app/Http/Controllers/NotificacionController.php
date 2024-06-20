@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Notification;
 
 class NotificacionController extends Controller
 {
@@ -11,7 +12,11 @@ class NotificacionController extends Controller
      */
     public function __invoke(Request $request)
     {
-        //
-        dd('Desde notificación controller');
+        
+        $notificaciones = auth()->user()->unreadNotifications;
+       
+        return view('notificaciones.index', [
+            'notificaciones' => $notificaciones
+        ]);
     }
 }
