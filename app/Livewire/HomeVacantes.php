@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class HomeVacantes extends Component
 {
-    protected $Listeners = ['terminoBusqueda' => 'buscar'];
+    protected $listeners = ['terminoBusqueda' => 'buscar'];
 
     public $termino;
     public $categoria;
@@ -17,10 +17,6 @@ class HomeVacantes extends Component
         $this->termino = $termino;
         $this->categoria = $categoria;
         $this->salario = $salario;
-
-        dd($this->termino);
-        dd($this->categoria);
-        dd($this->salario);
     }
     
     public function render()
